@@ -1,4 +1,4 @@
-name: Build Rust
+name: build
 
 on:
   push:
@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: rust-version: ${{ matrix.toolchain }}
-      - run: cargo build --workspace --verbose --all-features
+        with:
+          rust-version: ${{ matrix.toolchain }}
       - run: cargo build --workspace --verbose --no-default-features
+      - run: cargo build --workspace --verbose --all-features

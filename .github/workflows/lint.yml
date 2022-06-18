@@ -1,4 +1,4 @@
-name: Lint Rust
+name: lint
 
 on:
   push:
@@ -11,10 +11,8 @@ env:
 
 jobs:
   check:
-    name: cargo check
+    name: cargo-check
     runs-on: ubuntu-latest
-    env:
-      CARGO_BUILD_RUSTFLAGS: -Dwarnings -Adead_code -Aunused_variables # TODO: remove once v1.0 is live
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
@@ -23,10 +21,17 @@ jobs:
   clippy:
     name: clippy
     runs-on: ubuntu-latest
+    env:
+      # These flags remove unused code warnings from Check/Clippy's output; extremely useful
+      # during early development when most of your code is still a rough outline of definitions and
+      # `todo!()`s.
+      # TODO Remove the -A args once v1.0 goes live.
+      CARGO_BUILD_RUSTFLAGS: -D warnings -A dead_code -A unused_variables -A unused-imports -A unreachable-code
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: components: clippy
+        with:
+          components: clippy
       - run: cargo clippy --workspace --verbose --no-default-features
       - run: cargo clippy --workspace --verbose --all-features
   udeps:
@@ -37,6 +42,6 @@ jobs:
       - uses: hecrj/setup-rust-action@v1
         with:
           rust-version: nightly
-          components: udeps
+      - run: cargo install cargo-udeps
       - run: cargo udeps --workspace --verbose --no-default-features
       - run: cargo udeps --workspace --verbose --all-features

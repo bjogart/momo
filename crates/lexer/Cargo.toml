@@ -4,8 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-itertools = "0.10.3"
 query_base = { version = "0.1.0", path = "../query_base" }
 source = { version = "0.1.0", path = "../source" }
 syntax = { version = "0.1.0", path = "../syntax" }
-unicode-xid = "0.2.3"

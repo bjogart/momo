@@ -1,6 +1,4 @@
-name: Rust CodeCov
-
-name: Build Rust
+name: codecov
 
 on:
   push:
@@ -12,11 +10,12 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-    name: build
+  codecov:
+    name: tarpaulin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
       - uses: actions-rs/tarpaulin@v0.1
-      with: args: --all-features
+        with:
+          args: --all-features
