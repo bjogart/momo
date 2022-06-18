@@ -1,6 +1,4 @@
-name: Rust CodeCov
-
-name: Build Rust
+name: codecov
 
 on:
   push:

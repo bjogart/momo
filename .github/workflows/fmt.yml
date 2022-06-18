@@ -1,4 +1,4 @@
-name: rustfmt
+name: fmt
 
 on: push
 
