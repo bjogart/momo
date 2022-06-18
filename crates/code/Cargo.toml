@@ -1,0 +1,10 @@
+[package]
+name = "code"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ment = { version = "0.1.0", path = "../ment" }
+name = { version = "0.1.0", path = "../name" }
+query_base = { version = "0.1.0", path = "../query_base" }
+wasm = { version = "0.1.0", path = "../wasm" }

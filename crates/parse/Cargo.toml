@@ -1,0 +1,11 @@
+[package]
+name = "parse"
+version = "0.1.0"
+edition = "2021"
+
+[dev-dependencies]
+pomelo = "0.1.5"
+
+[dependencies]
+query_base = { version = "0.1.0", path = "../query_base" }
+source = { version = "0.1.0", path = "../source" }

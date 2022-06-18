@@ -1,0 +1,22 @@
+main(): ()
+    print(sum(100))
+
+sum(n: u32): u32
+    case n
+        0 -> 0
+        n ->
+            dec = sub(n, 1)
+            rem = sum(dec)
+            add(n, rem)
+
+asm add(l: u32, r: u32): u32
+    local(l)
+    local(r)
+    i32_add(l, r)
+
+asm sub(l: u32, r: u32): u32
+    local(l)
+    local(r)
+    i32_sub(l, r)
+
+extern console/log(v: u32): ()

@@ -1,0 +1,16 @@
+[package]
+name = "query"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code = { version = "0.1.0", path = "../code" }
+config = { version = "0.1.0", path = "../config" }
+fir = { version = "0.1.0", path = "../fir" }
+mair = { version = "0.1.0", path = "../mair" }
+ment = { version = "0.1.0", path = "../ment" }
+name = { version = "0.1.0", path = "../name" }
+parse = { version = "0.1.0", path = "../parse" }
+query_base = { version = "0.1.0", path = "../query_base" }
+source = { version = "0.1.0", path = "../source" }
+tree = { version = "0.1.0", path = "../tree" }

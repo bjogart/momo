@@ -1,0 +1,10 @@
+[package]
+name = "name"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+source = { version = "0.1.0", path = "../source" }
+query_base = { version = "0.1.0", path = "../query_base" }
+fir = { version = "0.1.0", path = "../fir" }
+tree = { version = "0.1.0", path = "../tree" }

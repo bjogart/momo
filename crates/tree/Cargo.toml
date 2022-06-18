@@ -1,0 +1,16 @@
+[package]
+name = "tree"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+parse = { version = "0.1.0", path = "../parse" }
+query_base = { version = "0.1.0", path = "../query_base" }
+source = { version = "0.1.0", path = "../source" }
+
+[build-dependencies]
+proc-macro2 = "1.0.39"
+quote = "1.0.18"
+ungrammar = "1.16.1"

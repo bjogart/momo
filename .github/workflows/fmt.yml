@@ -1,0 +1,15 @@
+name: rustfmt
+
+on: push
+
+env: CARGO_TERM_COLOR: always
+
+jobs:
+  fmt:
+    name: rustfmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hecrj/setup-rust-action@v1
+        with: components: rustfmt
+      - run: cargo fmt --all

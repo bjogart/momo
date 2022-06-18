@@ -1,0 +1,9 @@
+[package]
+name = "mair"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fir = { version = "0.1.0", path = "../fir" }
+name = { version = "0.1.0", path = "../name" }
+query_base = { version = "0.1.0", path = "../query_base" }

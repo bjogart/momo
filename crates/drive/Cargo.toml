@@ -1,0 +1,11 @@
+[package]
+name = "drive"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+code = { version = "0.1.0", path = "../code" }
+config = { version = "0.1.0", path = "../config" }
+name = { version = "0.1.0", path = "../name" }
+query = { version = "0.1.0", path = "../query" }
+wasm = { version = "0.1.0", path = "../wasm" }

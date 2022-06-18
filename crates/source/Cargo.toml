@@ -1,0 +1,8 @@
+[package]
+name = "source"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+la-arena = "0.2.1"
+query_base = { version = "0.1.0", path = "../query_base" }

@@ -1,0 +1,11 @@
+[package]
+name = "fir"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+cache = { version = "0.1.0", path = "../cache" }
+la-arena = "0.2.1"
+query_base = { path = "../query_base" }
+source = { version = "0.1.0", path = "../source" }
+tree = { version = "0.1.0", path = "../tree" }
