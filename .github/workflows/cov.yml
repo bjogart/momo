@@ -19,3 +19,7 @@ jobs:
       - uses: actions-rs/tarpaulin@v0.1
         with:
           args: --all-features
+          # Failing under some percentage seems like a useful trick to keep tabs on codecov; but
+          # it is not so useful when most of your code is yet to be written.
+          # TODO Replace the line above with the line below once v1.0 goes live.
+          # args: --all-features --fail-under 75
