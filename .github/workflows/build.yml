@@ -22,5 +22,5 @@ jobs:
       - uses: hecrj/setup-rust-action@v1
         with:
           rust-version: ${{ matrix.toolchain }}
-      - run: cargo build --workspace --verbose --all-features
       - run: cargo build --workspace --verbose --no-default-features
+      - run: cargo build --workspace --verbose --all-features
