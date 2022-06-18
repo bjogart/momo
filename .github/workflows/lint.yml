@@ -11,7 +11,7 @@ env:
 
 jobs:
   check:
-    name: check
+    name: cargo-check
     runs-on: ubuntu-latest
     env:
       CARGO_BUILD_RUSTFLAGS: -Dwarnings -Adead_code -Aunused_variables # TODO: remove once v1.0 is live

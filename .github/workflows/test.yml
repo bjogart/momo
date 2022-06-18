@@ -24,7 +24,7 @@ jobs:
       - run: cargo test --workspace --verbose --no-default-features
       - run: cargo test --workspace --verbose --all-features
   miri-test:
-    name: miri test
+    name: miri-test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
