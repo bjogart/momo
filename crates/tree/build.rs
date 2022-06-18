@@ -35,7 +35,7 @@ enum Cardinality {
 }
 
 fn main() {
-    let grm_text = fs::read_to_string("momo.ungram").unwrap();
+    let grm_text = fs::read_to_string("momo.ungram").map(|s| s.replace("\r\n", "\n")).unwrap();
     let grm = Grammar::from_str(&grm_text).unwrap();
 
     let mut file = quote! {
