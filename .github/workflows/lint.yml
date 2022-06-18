@@ -38,6 +38,6 @@ jobs:
       - uses: hecrj/setup-rust-action@v1
         with:
           rust-version: nightly
-          components: udeps
+      - run: cargo install cargo-udeps
       - run: cargo udeps --workspace --verbose --no-default-features
       - run: cargo udeps --workspace --verbose --all-features
