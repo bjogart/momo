@@ -2,7 +2,8 @@ name: rustfmt
 
 on: push
 
-env: CARGO_TERM_COLOR: always
+env:
+  CARGO_TERM_COLOR: always
 
 jobs:
   fmt:
@@ -11,5 +12,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: components: rustfmt
+        with:
+          components: rustfmt
       - run: cargo fmt --all

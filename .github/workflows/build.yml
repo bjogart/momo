@@ -20,6 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: rust-version: ${{ matrix.toolchain }}
+        with:
+          rust-version: ${{ matrix.toolchain }}
       - run: cargo build --workspace --verbose --all-features
       - run: cargo build --workspace --verbose --no-default-features

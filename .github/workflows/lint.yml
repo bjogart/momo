@@ -26,7 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: components: clippy
+        with:
+          components: clippy
       - run: cargo clippy --workspace --verbose --no-default-features
       - run: cargo clippy --workspace --verbose --all-features
   udeps:

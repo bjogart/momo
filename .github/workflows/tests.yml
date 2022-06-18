@@ -19,7 +19,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
-        with: rust-version: ${{ matrix.toolchain }}
+        with:
+          rust-version: ${{ matrix.toolchain }}
       - run: cargo test --workspace --verbose --all-features
       - run: cargo test --workspace --verbose --no-default-features
   miri-test:
