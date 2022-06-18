@@ -10,9 +10,23 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+  check:
+    name: cargo-check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hecrj/setup-rust-action@v1
+      - run: cargo check --workspace --verbose --no-default-features
+      - run: cargo check --workspace --verbose --all-features
   clippy:
     name: clippy
     runs-on: ubuntu-latest
+    env:
+      # These flags remove unused code warnings from Check/Clippy's output; extremely useful
+      # during early development when most of your code is still a rough outline of definitions and
+      # `todo!()`s.
+      # TODO Remove the -A args once v1.0 goes live.
+      CARGO_BUILD_RUSTFLAGS: -D warnings -A dead_code -A unused_variables -A unused-imports -A unreachable-code
     steps:
       - uses: actions/checkout@v3
       - uses: hecrj/setup-rust-action@v1
