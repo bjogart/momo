@@ -8,4 +8,4 @@ pomelo = "0.1.5"
 
 [dependencies]
 query_base = { version = "0.1.0", path = "../query_base" }
-source = { version = "0.1.0", path = "../source" }
+syntax = { version = "0.1.0", path = "../syntax" }
