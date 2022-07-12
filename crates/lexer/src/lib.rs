@@ -143,9 +143,7 @@ impl LexChar for char {
 //     }
 // }
 
-fn eat(it: &mut Chars<'_>) -> Option<(char, usize)> {
-    it.next().map(|ch| (ch, ch.len_utf8()))
-}
+fn eat(it: &mut Chars<'_>) -> Option<(char, usize)> { it.next().map(|ch| (ch, ch.len_utf8())) }
 
 fn eat_if(it: &mut Chars<'_>, pred: impl Fn(&char) -> bool) -> Option<usize> {
     match it.clone().next() {
