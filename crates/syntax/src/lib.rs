@@ -6,6 +6,25 @@ pub struct Token {
     s: SmolStr,
 }
 
+#[derive(Debug, Clone, Copy)]
+#[repr(u16)]
+#[allow(non_camel_case_types)]
+pub enum SyntaxKind {
+    DUMMY,
+    ERR_UNEXPECTED_CHAR,
+    LPAR,
+    RPAR,
+    COLON,
+    EQ,
+    COMMA,
+    IDENT,PATH,
+    INT,
+    WS,
+    NL,
+    Ty,
+}
+
+
 impl Token {
     pub fn new(kind: SyntaxKind, s: &str) -> Self {
         Self { kind, s: SmolStr::new(s) }
@@ -18,7 +37,6 @@ impl Token {
     }
 }
 
-#[repr(u16)]
-pub enum SyntaxKind {
-    DUMMY,
+impl SyntaxKind {
+    pub fn is_err(self) -> bool { matches!(self, Self::DUMMY | Self::ERR_UNEXPECTED_CHAR)}
 }
