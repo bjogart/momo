@@ -3,9 +3,10 @@ name = "parse"
 version = "0.1.0"
 edition = "2021"
 
-[dev-dependencies]
-pomelo = "0.1.5"
-
 [dependencies]
+lalrpop-util = "0.19.8"
 query_base = { version = "0.1.0", path = "../query_base" }
 syntax = { version = "0.1.0", path = "../syntax" }
+
+[build-dependencies]
+lalrpop = "0.19.8"

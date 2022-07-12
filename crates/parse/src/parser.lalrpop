@@ -1,0 +1,25 @@
+use syntax::SyntaxKind as S;
+
+use crate::Builder;
+
+grammar<B>(b: &mut B) where B: Builder;
+
+pub File: () = Decl+ => todo!();
+
+Decl: () = { Func }
+
+Func: () = IDENT "(" ")" Ty ":" => todo!();
+
+Ty: () = "(" ")" => { b.start(S::Ty); b.token(); b.token(); b.end(); };
+
+extern {
+    type Location = usize;
+    type Error = ();
+    enum S {
+        DUMMY => S::DUMMY, // TODO remove dummy token
+        IDENT => S::IDENT,
+        "(" => S::LPAR,
+        ")" => S::RPAR,
+        ":" => S::COLON,
+    }
+}
