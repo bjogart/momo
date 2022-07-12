@@ -7,6 +7,7 @@ edition = "2021"
 code = { version = "0.1.0", path = "../code" }
 config = { version = "0.1.0", path = "../config" }
 fir = { version = "0.1.0", path = "../fir" }
+lexer = { version = "0.1.0", path = "../lexer" }
 mair = { version = "0.1.0", path = "../mair" }
 ment = { version = "0.1.0", path = "../ment" }
 name = { version = "0.1.0", path = "../name" }
