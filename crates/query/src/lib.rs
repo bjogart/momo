@@ -33,6 +33,7 @@ impl<'qx> source::Queries<'qx> for QueryCx<'qx> {
     }
 }
 
+impl<'qx> lexer::Queries for QueryCx<'qx> {}
 impl<'qx> parse::Queries for QueryCx<'qx> {}
 
 impl<'qx> tree::Queries for QueryCx<'qx> {}

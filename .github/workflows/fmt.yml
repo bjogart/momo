@@ -11,7 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: hecrj/setup-rust-action@v1
+        with:
+          ref: ${{ github.head_ref }}
+      - name: setup rustfmt
+        uses: hecrj/setup-rust-action@v1
         with:
           components: rustfmt
-      - run: cargo fmt --all
+      - name: run rustfmt
+        run: cargo fmt --all
+      - name: check for modified files
+        id: git-check
+        run: echo ::set-output name=modified::$(if git diff-index --quiet HEAD --; then echo "false"; else echo "true"; fi)
+      - name: push changes
+        if: steps.git-check.outputs.modified == 'true'
+        run: |
+          git config user.name 'Jasper van den Bogart'
+          git config user.email 'bjogart@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "autofmt"
+          git push
