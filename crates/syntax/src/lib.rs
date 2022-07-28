@@ -17,20 +17,22 @@ pub enum SyntaxKind {
     COLON,
     EQ,
     COMMA,
-    IDENT,PATH,
+    IDENT,
+    PATH,
     INT,
     WS,
     NL,
     Ty,
 }
 
-
 impl Token {
     pub fn new(kind: SyntaxKind, s: &str) -> Self {
         Self { kind, s: SmolStr::new(s) }
     }
 
-    pub fn len(&self) -> usize  { self.s.len()}
+    pub fn len(&self) -> usize {
+        self.s.len()
+    }
 
     pub fn kind(&self) -> SyntaxKind {
         self.kind
@@ -38,5 +40,7 @@ impl Token {
 }
 
 impl SyntaxKind {
-    pub fn is_err(self) -> bool { matches!(self, Self::DUMMY | Self::ERR_UNEXPECTED_CHAR)}
+    pub fn is_err(self) -> bool {
+        matches!(self, Self::DUMMY | Self::ERR_UNEXPECTED_CHAR)
+    }
 }

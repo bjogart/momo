@@ -36,7 +36,7 @@ fn scan_next_token(text: &str, pos: &mut usize, it: &mut Chars<'_>) -> Option<To
                     len += n_consumed;
                     SyntaxKind::PATH
                 } else {
-                SyntaxKind::IDENT
+                    SyntaxKind::IDENT
                 }
             }
             ch if ch.is_ws() => {
@@ -52,12 +52,12 @@ fn scan_next_token(text: &str, pos: &mut usize, it: &mut Chars<'_>) -> Option<To
                 SyntaxKind::NL
             }
             '=' => {
-            //     if let Some(n_consumed) = eat_if(it, |ch| *ch == '=') {
-            //         len += n_consumed;
-            //         SyntaxKind::EQEQ
-            //     } else {
-                    SyntaxKind::EQ
-            //     }
+                //     if let Some(n_consumed) = eat_if(it, |ch| *ch == '=') {
+                //         len += n_consumed;
+                //         SyntaxKind::EQEQ
+                //     } else {
+                SyntaxKind::EQ
+                //     }
             }
             // '|' => {
             //     if let Some(n_consumed) = eat_if(it, |ch| *ch == '|') {
@@ -143,7 +143,9 @@ impl LexChar for char {
 //     }
 // }
 
-fn eat(it: &mut Chars<'_>) -> Option<(char, usize)> { it.next().map(|ch| (ch, ch.len_utf8())) }
+fn eat(it: &mut Chars<'_>) -> Option<(char, usize)> {
+    it.next().map(|ch| (ch, ch.len_utf8()))
+}
 
 fn eat_if(it: &mut Chars<'_>, pred: impl Fn(&char) -> bool) -> Option<usize> {
     match it.clone().next() {

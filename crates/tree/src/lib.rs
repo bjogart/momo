@@ -44,7 +44,7 @@ pub struct Mod;
 pub struct Error;
 
 fn filter_tag_parse_token(t: Token) -> (Token, bool) {
-     let keep = !matches!(t.kind(), SyntaxKind::WS);
+    let keep = !matches!(t.kind(), SyntaxKind::WS);
     (t, keep)
 }
 
